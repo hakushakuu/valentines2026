@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>For Camille 💖</title>
+
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Great+Vibes&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Great+Vibes&family=Allura&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Lora:ital,wght@0,400;1,400&family=Great+Vibes&family=Playfair+Display:ital@0;1&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+</head>
+
+<body>
+<audio id="bgmusic" loop preload="auto">
+  <source src="music/music.mp3" type="audio/mp3">
+</audio>
+
+<audio id="heartbeat" loop>
+  <source src="music/heartbeat.wav" type="audio/mp3">
+</audio>
+
+<!-- 1 OPENING -->
+<section class="page active" id="welcome">
+  <div class="hearts"></div>
+  <h1 class="header-name" id="animatedName"></h1>
+  <h2>Something I made just for you 💌</h2>
+  <button class="btn" onclick="next('question')">Open</button>
+</section>
+
+<!-- 2 VALENTINE -->
+<section class="page" id="question">
+  <h1>Will you be my Valentine? 💖</h1>
+  <div class="valentine-buttons">
+    <button class="btn glow" onclick="yesClicked()">YES 💖</button>
+    <button class="btn" id="noBtn">No 😌</button>
+  </div>
+</section>
+
+<!-- 3 PLANS -->
+<section class="page" id="plans">
+  <h1>Our Valentine Night 🌹</h1>
+  <div class="timeline-plan">
+    Sundo → Dinner → Kape → Uwi → (Mcchicken kung kaya pa) 
+  </div>
+  <div class="countdown" id="countdown"></div>
+  <button class="btn" onclick="next('game')">Continue</button>
+</section>
+
+<!-- 4 PUZZLE -->
+<section class="page" id="game">
+  <h1>Put our pieces together 💖</h1>
+  <div class="puzzle-board" id="pieces"></div>
+  <div class="dropzone" id="board"></div>
+</section>
+
+<!-- 5 MEMORIES -->
+<section class="page" id="timeline">
+  <h1>Our Story 💕</h1>
+
+  <div class="carousel">
+    <button class="arrow left" onclick="prevSlide()">❮</button>
+    <img id="slideImage" src="images/jan.jpg">
+    <button class="arrow right" onclick="nextSlide()">❯</button>
+    <div class="caption" id="slideCaption">January</div>
+  </div>
+
+  <div class="letter">
+    <h2 id="letterTitle"></h2>
+    <p id="letterText"></p>
+    <div id="letterClosing"></div> 
+  </div>
+
+  <button class="btn" onclick="next('message')">Continue</button>
+</section>
+
+<!-- 6 MESSAGE -->
+<section class="page" id="message">
+  <h1>Tell me how you feel 💌</h1>
+  <input class="input-box" id="fromName" placeholder="Your name">
+  <input class="input-box" id="datePicker" type="date">
+  <input class="input-box" id="subject" placeholder="Subject">
+  <textarea class="input-box" id="userMessage" rows="4" placeholder="Write your message..."></textarea>
+  <button class="btn" onclick="sendEmail()">Send Message</button>
+</section>
+
+<!-- FINAL PROPOSAL -->
+<section class="page" id="proposal">
+  <div class="stars"></div>
+  <h1 id="proposalText"></h1>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>

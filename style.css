@@ -1,0 +1,212 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%; /* Changed from height: 100% */
+  /* Remove overflow: hidden to allow the browser to scroll */
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #ffd6e8, #ffeef5);
+  background-attachment: fixed; /* Keeps background still while scrolling */
+}
+
+.page {
+  position: relative; /* Changed from fixed to let it exist in the flow */
+  min-height: 100vh;   /* Takes up at least the full screen */
+  width: 100%;
+  display: none;      /* Hidden by default */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px; /* More vertical padding for breathing room */
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.page.active {
+  display: flex; /* Shown when active */
+}
+
+h1,h2 { color:#ff3b7a; }
+
+.btn{
+  padding:14px 30px;
+  background:#ff5c8a;
+  border:none;
+  color:white;
+  border-radius:30px;
+  font-size:18px;
+  cursor:pointer;
+  margin-top:20px;
+}
+
+.header-name{
+  font-family:'Great Vibes',cursive;
+  font-size:44px;
+  border-right:2px solid #ff3b7a;
+  white-space:nowrap;
+  overflow:hidden;
+}
+
+.countdown{ font-size:32px; font-weight:600; margin-top:10px; }
+
+.glow{ box-shadow:0 0 25px #ff8ab1; }
+
+.timeline-plan{ font-size:20px; margin:20px; }
+
+/* heart explosion */
+.heart-burst{
+  position:fixed;
+  font-size:28px;
+  animation:burst 1s ease forwards;
+}
+@keyframes burst{
+  to{ transform:translateY(-200px) scale(1.8); opacity:0;}
+}
+
+/* puzzle */
+.puzzle-board{ width:300px; height:300px; display:flex; flex-wrap:wrap; gap:2px; }
+.dropzone{ width:306px; height:306px; display:grid; grid-template-columns:repeat(3,98px); grid-template-rows:repeat(3,98px); gap:2px; }
+.piece{ width:96px; height:96px; background-size:300px 300px; cursor:grab; }
+.slot{ width:98px; height:98px; border:2px dashed #ffb3c7; }
+
+/* carousel */
+.carousel{ position:relative; width:85%; max-width:350px; background:white; padding:15px 15px 60px; border-radius:6px; }
+.carousel img{ width:100%; border-radius:6px; }
+
+.arrow{
+  position:absolute;
+  top:45%;
+  transform:translateY(-50%);
+  font-size:22px;
+  background:white;
+  border:none;
+  width:40px;
+  height:40px;
+  border-radius:50%;
+  cursor:pointer;
+}
+.arrow.left{ left:-18px; }
+.arrow.right{ right:-18px; }
+
+.caption{ font-family:'Great Vibes'; font-size:28px; color:#ff3b7a; }
+
+.letter {
+  width: 90%;
+  max-width: 500px;
+  height: auto;       /* Let it grow */
+  max-height: none;   /* Remove the limit */
+  overflow: visible;  /* No internal scroll */
+  background: rgba(255, 255, 255, 0.95);
+  padding: 30px;
+  border-radius: 15px;
+  margin: 20px auto;
+  box-shadow: 0 10px 30px rgba(255, 59, 122, 0.1);
+}
+
+#letterTitle {
+    align-self: flex-start; /* Title on the left */
+    margin-bottom: 10px;
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.2rem;
+    color: #ff3b7a;
+    align-self: flex-start;
+    margin-bottom: 15px;
+}
+
+#letterText {
+    margin-bottom: 20px;
+    font-family: 'Lora', cursive;
+    font-size: 1.2rem;
+    color: #444;
+    line-height: 1.4;
+}
+
+#letterClosing {
+    align-self: flex-end; /* Closing on the right */
+    text-align: right;
+    font-family: 'Great Vibes', cursive; /* Optional: makes the signature look handwritten */
+    font-size: 1.5rem;
+    color: #ff3b7a;
+    min-height: 1.5em; /* Prevents layout jump while typing */
+}
+
+.input-box{
+  width:90%;
+  max-width:500px;
+  border-radius:12px;
+  border:1px solid #ffb3c7;
+  padding:12px;
+  margin-top:10px;
+}
+
+.hearts::before{
+  content:"❤️ ❤️ ❤️ ❤️ ❤️";
+  position:absolute;
+  animation:float 10s linear infinite;
+  opacity:0.4;
+}
+
+@keyframes float{
+  from{transform:translateY(100vh);}
+  to{transform:translateY(-10vh);}
+}
+
+#proposal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  overflow: hidden;
+  background: radial-gradient(circle, #1a001a, #330033);
+  opacity: 0;
+  transition: opacity 2s ease;
+  pointer-events: none;
+}
+
+#proposal.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+#proposal .stars {
+  position: absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  pointer-events: none;
+  z-index:1;
+}
+
+#proposalText {
+  z-index:2;
+  color: #ff7ab1;
+  font-size: 42px;
+  font-family: 'Great Vibes', cursive;
+  text-align: center;
+  margin: 0 20px;
+}
+
+/* falling star animation */
+@keyframes fall {
+  0% { transform: translateY(-20px) rotate(0deg); opacity:1; }
+  100% { transform: translateY(100vh) rotate(360deg); opacity:0; }
+}
+.star {
+  position: absolute;
+  color: #fff;
+  font-size: 18px;
+  animation: fall 3s linear infinite;
+}
+
+.floating-heart {
+    position: fixed;
+    bottom: -20px;
+    pointer-events: none;
+    z-index: 0; /* Higher than body background, lower than content */
+    user-select: none;
+}
